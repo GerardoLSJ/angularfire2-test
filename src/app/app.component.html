@@ -1,18 +1,45 @@
-<h1>
-  {{title}}
-</h1>
-<h2>{{ (itemObj | async )?.$value }}</h2>
+<h1>{{title}}</h1>
+<h2>{{subtitle}}</h2>
+<div class="w3-container">
+  <ul class="w3-ul w3-card-4up" *ngFor = "let twit of tweets |  async">
+    <li class="w3-padding-16" *ngIf="twit.state" (click)="changeState(twit.$key,false)" [class.true]="twit.state">
+      <img src="{{twit.pic}}" class="w3-left w3-circle w3-margin-right" style="width:60px">
+      <span class="w3-xlarge">{{twit.$key}}</span><br>
+      <span>{{twit.content}}</span>
+      <br>
+      <span>{{twit.state}}</span>
+    </li>
+<!--   twit.state false -->
+    <li class="w3-padding-16" *ngIf="!twit.state" (click)="changeState(twit.$key,true)" [class.true]="twit.state">
+      <img src="{{twit.pic}}" class="w3-left w3-circle w3-margin-right" style="width:60px">
+      <span class="w3-xlarge">{{twit.$key}}</span><br>
+      <span>{{twit.content}}</span>
+      <br>
+      <span>{{twit.state}}</span>
+    </li>
+  </ul>
+</div>
 
+
+
+
+
+<!--
 <ul *ngFor="let item of items | async">
   <li class="text">
     {{item.text}}
   </li>
 </ul>
 
-  <h1>{{ item | async | json }}</h1>
-  <input type="text" #newname placeholder="Name" />
-  <input type="text" #newsize placeholder="Size" />
-  <br />
-  <button (click)="save(newname.value)">Set Name</button>
-  <button (click)="update(newsize.value)">Update Size</button>
-  <button (click)="delete()">Delete</button>
+<ul>
+    <li *ngFor="let element of list | async">
+      <input type="text" #updatesize [value]="element.text" />
+      <button (click)="update(element.$key, updatesize.value)">Update</button>
+      <button (click)="deleteelement(element.$key)">Delete</button>
+    </li>
+  </ul>
+  <input type="text" #newitem />
+  <button (click)="add(newitem.value)">Add.</button>
+  <button (click)="deleteEverything()">Delete All.</button>
+
+  -->
