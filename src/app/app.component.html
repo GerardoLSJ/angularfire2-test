@@ -1,25 +1,24 @@
 <h1>{{title}}</h1>
 <h2>{{subtitle}}</h2>
-<div class="w3-container">
-  <ul class="w3-ul w3-card-4up" *ngFor = "let twit of tweets |  async">
-    <li class="w3-padding-16" *ngIf="twit.state" (click)="changeState(twit.$key,false)" [class.true]="twit.state">
-      <img src="{{twit.pic}}" class="w3-left w3-circle w3-margin-right" style="width:60px">
-      <span class="w3-xlarge">{{twit.$key}}</span><br>
+<div class="wrapper">
+  <ul class="" *ngFor = "let twit of tweets |  async">
+    <li class="" *ngIf="twit.state" (click)="changeState(twit.$key,false)" [class.true]="twit.state">
+      <img src="{{twit.pic}}" class="circle" style="width:60px">
+      <span class="large">{{twit.$key}}</span><br>
       <span>{{twit.content}}</span>
       <br>
       <span>{{twit.state}}</span>
     </li>
 <!--   twit.state false -->
-    <li class="w3-padding-16" *ngIf="!twit.state" (click)="changeState(twit.$key,true)" [class.true]="twit.state">
-      <img src="{{twit.pic}}" class="w3-left w3-circle w3-margin-right" style="width:60px">
-      <span class="w3-xlarge">{{twit.$key}}</span><br>
+    <li class="" *ngIf="!twit.state" (click)="changeState(twit.$key,true)" [class.true]="twit.state">
+      <img src="{{twit.pic}}" class="circle" style="width:60px">
+      <span class="large">{{twit.$key}}</span><br>
       <span>{{twit.content}}</span>
       <br>
       <span>{{twit.state}}</span>
     </li>
   </ul>
 </div>
-
 
 
 
