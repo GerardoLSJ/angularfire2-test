@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { FirebaseObjectObservable } from 'angularfire2';
-
+import { AuthProviders, AuthMethods } from 'angularfire2';
 @Component({
   moduleId: module.id,
   selector: 'app',
@@ -16,15 +16,36 @@ export class AppComponent {
 */
    tweets: FirebaseListObservable<any[]>;
 
-  constructor(af: AngularFire) {
-/*
+  constructor(public af: AngularFire) {
+  /*  this.af.auth.subscribe(auth => console.log(auth));
+
     this.items = af.database.list('/items');
     this.list = af.database.list('/messages');
     this.itemObj = af.database.object('/obj');
      console.log(this.itemObj); 
 */
-    this.tweets = af.database.list('/tweets');
+    this.tweets = af.database.list('/tweets' /*, {
+      query: {
+       limitToLast:7
+      }
+    } */ ); 
   }
+
+  /*
+  login() {
+    this.af.auth.login({
+      provider: AuthProviders.Google,
+      method: AuthMethods.Popup,
+    });
+  }
+  overrideLogin() {
+    this.af.auth.login({
+      provider: AuthProviders.Anonymous,
+      method: AuthMethods.Anonymous,
+    });    
+  }
+*/
+  
 
    changeState(key: string, newState: string) {
     
