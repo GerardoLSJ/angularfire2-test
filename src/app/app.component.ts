@@ -1,36 +1,41 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import { FirebaseObjectObservable } from 'angularfire2';
-import { AuthProviders, AuthMethods } from 'angularfire2';
+import { FireComponent } from './fire.component';
+
+
 @Component({
   moduleId: module.id,
   selector: 'app',
   templateUrl: 'app.component.html',
-  styleUrls: ['app.component.css']
+  styleUrls: ['app.component.css'],
+  directives:[FireComponent]
 })
 export class AppComponent {
+  title = 'app works!';
+  subtitle = 'angularfire2 is the devil'
+
+
 /*
    items: FirebaseListObservable<any[]>;
    itemObj: FirebaseObjectObservable<any>;
    list: FirebaseListObservable<any[]>;
 */
-   tweets: FirebaseListObservable<any[]>;
 
+/*
   constructor(public af: AngularFire) {
-  /*  this.af.auth.subscribe(auth => console.log(auth));
+    this.af.auth.subscribe(auth => console.log(auth));
 
     this.items = af.database.list('/items');
     this.list = af.database.list('/messages');
     this.itemObj = af.database.object('/obj');
      console.log(this.itemObj); 
-*/
-    this.tweets = af.database.list('/tweets' /*, {
+
+    this.tweets = af.database.list('/tweets' , {
       query: {
        limitToLast:7
       }
-    } */ ); 
+    }  ); 
   }
-
+*/
   /*
   login() {
     this.af.auth.login({
@@ -46,11 +51,11 @@ export class AppComponent {
   }
 */
   
-
+/*
    changeState(key: string, newState: string) {
     
     this.tweets.update(key, {state: newState} );
-  }
+  }*/ 
 
  /* save(newName: string) {
     this.itemObj.set({ name: newName });
@@ -76,8 +81,6 @@ export class AppComponent {
   }
 */
     
-  title = 'app works!';
-  subtitle = 'angularfire2 is the devil'
+
+
 }
-
-

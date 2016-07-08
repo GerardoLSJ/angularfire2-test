@@ -1,27 +1,6 @@
-
 <h1>{{title}}</h1>
 <h2>{{subtitle}}</h2>
-<div class="wrapper">
-  <ul class="" *ngFor = "let twit of tweets |  async">
-    <li class="" *ngIf="twit.state" (click)="changeState(twit.$key,false)" [class.true]="twit.state">
-      <img src="{{twit.pic}}" class="circle" style="width:60px">
-      <span class="large">{{twit.$key}}</span><br>
-      <span>{{twit.content}}</span>
-      <br>
-      <span>{{twit.state}}</span>
-    </li>
-<!---   twit.state false --->
-    <li class="" *ngIf="!twit.state" (click)="changeState(twit.$key,true)" [class.true]="twit.state">
-      <img src="{{twit.pic}}" class="circle" style="width:60px">
-      <span class="large">{{twit.$key}}</span><br>
-      <span>{{twit.content}}</span>
-      <br>
-      <span>{{twit.state}}</span>
-    </li>
-  </ul>
-</div>
-
-
+<tweets-section></tweets-section>
 
 
 <!--

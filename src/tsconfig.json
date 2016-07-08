@@ -2,8 +2,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "declaration": false,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "mapRoot": "/",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -13,7 +11,9 @@
     "rootDir": ".",
     "sourceMap": true,
     "target": "es5",
-    "inlineSources": true
+    "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
 
   "files": [
