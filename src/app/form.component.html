@@ -1,0 +1,21 @@
+<div >
+    <h1>Model-based Form:</h1>
+    <form #f="ngForm" >
+        <p>
+            <label>User ID:</label>
+            <input type="text" id="userID" [(ngModel)] = 'userID'  #id="ngForm">
+        </p>
+        <p>
+            <label>Twitter ID:</label>
+            <input type="text" id="twitterID" ([ngModel]) = "twitterID" #tw="ngForm">
+        </p>
+        <p>
+            <button (click) = "submitClick()" >Submit</button>
+        </p>
+    </form>
+
+    <div>{{ id.value }}</div>
+    <div>{{ tw.value }}</div>
+</div>
+
+

@@ -6,6 +6,8 @@ import { FirebaseObjectObservable } from 'angularfire2';
 import { AuthProviders, AuthMethods } from 'angularfire2';
 
 
+
+
 @Component({
     moduleId: module.id,
     selector: 'tweets-section',
@@ -15,21 +17,23 @@ import { AuthProviders, AuthMethods } from 'angularfire2';
 })
 export class FireComponent  {
 
-    constructor( private firebaseService: FirebaseService) { }
-    
+    constructor(
+        private firebaseService: FirebaseService,
+        public af: AngularFire
+    ) {
+        this.af.auth.subscribe(auth => console.log(auth));
+    }
+  
     tweets = this.firebaseService.getTweets();
+    users = this.firebaseService.getUser();
 
     changeState(key: string, newState: string) {
-         this.tweets.update(key, {state: newState} );
-  }
-    /*
+        this.tweets.update(key, { state: newState });
+    }
 
-       @HostListener('click', ['$event'])
-        onClick(e) {
-            console.log(e.target)
-        } 
-        
-        */
+
+
+
 
 
 

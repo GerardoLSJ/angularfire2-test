@@ -9,14 +9,31 @@ import { AuthProviders, AuthMethods } from 'angularfire2';
 export class FirebaseService {
 
     data: FirebaseListObservable<any[]>;
+    users: FirebaseListObservable<any[]>;
 
     constructor(public af: AngularFire) {
         this.data = af.database.list('/tweets');
+        //this.users = af.database.object('/users');
+
+        this.users = af.database.list('/tweets', {
+            query: {
+                orderByChild: 'content',
+                equalTo: "contenterasdasdasdasdds gfjfkjfkda "
+            }
+        });
+
+
     }
 
     getTweets(){
         return this.data;
     }
     
+    getUser() {
+        return this.users;
+    }
+    save() {
+       return  this.users;
+    }
 
 }

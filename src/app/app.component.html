@@ -1,7 +1,32 @@
 <h1>{{title}}</h1>
 <h2>{{subtitle}}</h2>
+
+<form-firebase></form-firebase>
+
 <login-section></login-section>
-<tweets-section></tweets-section>
+<div *ngIf="af.auth | async"> 
+<ul>
+
+  <li>
+    <img src="{{ (af.auth | async)?.auth.photoURL }}" class="circle" style="width:60px">
+  </li>
+  <li>
+    {{ (af.auth | async)?.auth.email }}
+  </li>
+  <li>
+    {{ (af.auth | async)?.uid }}
+  </li>
+  <li>
+    {{ (af.auth | async)?.auth.displayName }}
+  </li>
+
+</ul>
+
+
+
+  <tweets-section  ></tweets-section>
+</div>
+
 
 
 

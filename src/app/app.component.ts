@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { FireComponent } from './fire.component';
 import { LoginComponent } from './login.component';
+import { FormFirebaseComponent } from './form.component';
+
+import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+
 
 
 @Component({
@@ -8,12 +12,14 @@ import { LoginComponent } from './login.component';
   selector: 'app',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives:[FireComponent,LoginComponent]
+  directives:[FireComponent,LoginComponent, FormFirebaseComponent]
 })
 export class AppComponent {
   title = 'app works!';
   subtitle = 'angularfire2 is the devil'
-  
+    constructor(public af: AngularFire) {
+    this.af.auth.subscribe(auth => console.log(auth));
+  }
 
 
 /*
