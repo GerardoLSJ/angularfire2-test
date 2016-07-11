@@ -4,7 +4,7 @@
 
 .circle{
     border-radius: 100%;
-    box-shadow: 0px 2px 2px 1px #888888;
+    box-shadow: 1px 0px 0px 1px #888888;
 
 }
 .large{
@@ -21,11 +21,11 @@ ul {
 ul li {
 	list-style-type: none;
 	display: block;
+	background-color: #888888;
 	padding: 10px 30px 5px 30px;
-	background-color: #ffffff;
 	border-radius: 5px;
-	box-shadow: 0px 2px 2px 1px #888888;
-    color: #333;
+	 /*box-shadow: 1px 0px 0px 1px #888888; */
+    color: #fff;
 }
 li.true {
     background-color: #607D8B !important;

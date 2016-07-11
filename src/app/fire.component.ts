@@ -13,14 +13,7 @@ import { AuthProviders, AuthMethods } from 'angularfire2';
     styleUrls: ['app.component.css'],
     providers: [FirebaseService]
 })
-/*@HostListener('click', ['$event']) onClick(e) {
-
-
-}*/
-
 export class FireComponent  {
-
-   // data: FirebaseListObservable<any[]>;
 
     constructor( private firebaseService: FirebaseService) { }
     

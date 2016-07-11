@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FireComponent } from './fire.component';
+import { LoginComponent } from './login.component';
 
 
 @Component({
@@ -7,11 +8,12 @@ import { FireComponent } from './fire.component';
   selector: 'app',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives:[FireComponent]
+  directives:[FireComponent,LoginComponent]
 })
 export class AppComponent {
   title = 'app works!';
   subtitle = 'angularfire2 is the devil'
+  
 
 
 /*
