@@ -1,21 +1,33 @@
-<div >
+<!--<div >
     <h1>Model-based Form:</h1>
     <form #f="ngForm" >
         <p>
             <label>User ID:</label>
-            <input type="text" id="userID" [(ngModel)] = 'userID'  #id="ngForm">
+            <input type="text" id="userID" [(ngModel)] = 'userID' >
         </p>
         <p>
             <label>Twitter ID:</label>
-            <input type="text" id="twitterID" ([ngModel]) = "twitterID" #tw="ngForm">
+            <input type="text" id="twitterID" ([ngModel]) = "twitterID" >
         </p>
         <p>
             <button (click) = "submitClick()" >Submit</button>
         </p>
     </form>
 
-    <div>{{ id.value }}</div>
-    <div>{{ tw.value }}</div>
+    <div>{{ f.value | json }}</div>
+   
 </div>
+--->
+<form #f="ngForm">
+   <div ngControlGroup="name">
+     <input ngControl="first" [(ngModel)]="userID"
+     #first="ngForm">
+     <input ngControl="last" [(ngModel)]="twitterID">
+   </div>
+   <button (click) = "submitClick(userID,twitterID)" >Submit</button>
+</form>
+
+
+<div>{{ f.value | json }} </div>
 
 

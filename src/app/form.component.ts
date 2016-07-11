@@ -15,13 +15,12 @@ export class FormFirebaseComponent {
  
     form: FormGroup; 
     userID: any;
-    twitterID = new FormControl("");
-
+    twitterID: any;
     constructor( ){}
     
-    submitClick() {
+    submitClick(userID,twitterID) {
         console.log("model-based form submitted");
-        console.log(42);
+        console.log(userID +" "+ twitterID );
     }
     
 
