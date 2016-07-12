@@ -9,11 +9,11 @@ import { FirebaseService } from './firebase.service';
 
   <div *ngIf="af.auth | async">
       <div> {{ (af.auth | async)?.uid }} </div>
-     <button (click)="logOut()">Logout</button>
+     <button class="btn btn-default"  (click)="logOut()">Logout</button>
   </div>
   <div *ngIf="!(af.auth | async)">
-     <button (click)="loginGoogle()">Login With google</button>
-     <button (click)="overrideLogin()">Login Anonymously</button>
+     <button class="btn btn-default" (click)="loginGoogle()">Login With google</button>
+     <button class="btn btn-default" (click)="emailLogin2(email, password)">Login Email</button>
   </div>
   `,
 })
@@ -21,8 +21,8 @@ export class LoginComponent {
   constructor(public af: AngularFire) {
     this.af.auth.subscribe(auth => console.log());
   }
-  public email: any;
-  public password: any;
+  public email: string = 'juan@gmail.com';
+  public password: any = 'qwerty';
   //userUID:any = this.af.auth;  
 
   loginGoogle(user:any) {
@@ -38,6 +38,20 @@ export class LoginComponent {
       method: AuthMethods.Anonymous,
     });
   }
+
+  // Email and password
+  emailLogin2() {
+    this.af.auth.login(
+      {
+        email: 'gerricio@gmail.com',
+        password: 'password'
+      },
+      {
+        provider: AuthProviders.Password,
+        method: AuthMethods.Password,
+      })
+  }
+
   logOut(){
     this.af.auth.logout();
   }

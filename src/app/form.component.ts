@@ -21,6 +21,7 @@ export class FormFirebaseComponent {
     twitterID: any;
     pushTweets = this.fb.getTweets();
     userKey:any;
+    clickEvent = 0;
 
 
     constructor(
@@ -53,7 +54,7 @@ export class FormFirebaseComponent {
                 equalTo: userKey
             }
         });
-        console.log(this.pushTweets);
+        this.clickEvent++;
         
     }
 
