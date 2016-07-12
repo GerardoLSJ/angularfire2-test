@@ -25,7 +25,7 @@ export class FireComponent  {
     }
   
     tweets = this.firebaseService.getTweets();
-    users = this.firebaseService.getUser();
+    //users = this.firebaseService.getUser();
 
     changeState(key: string, newState: string) {
         this.tweets.update(key, { state: newState });

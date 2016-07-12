@@ -1,33 +1,30 @@
-<!--<div >
-    <h1>Model-based Form:</h1>
-    <form #f="ngForm" >
-        <p>
-            <label>User ID:</label>
-            <input type="text" id="userID" [(ngModel)] = 'userID' >
-        </p>
-        <p>
-            <label>Twitter ID:</label>
-            <input type="text" id="twitterID" ([ngModel]) = "twitterID" >
-        </p>
-        <p>
-            <button (click) = "submitClick()" >Submit</button>
-        </p>
-    </form>
-
-    <div>{{ f.value | json }}</div>
-   
-</div>
---->
 <form #f="ngForm">
-   <div ngControlGroup="name">
-     <input ngControl="first" [(ngModel)]="userID"
-     #first="ngForm">
-     <input ngControl="last" [(ngModel)]="twitterID">
-   </div>
-   <button (click) = "submitClick(userID,twitterID)" >Submit</button>
+    <div ngControlGroup="KEYS">
+        <div *ngIf="af.auth | async">
+            <div> Your UID: {{ (af.auth | async)?.uid }} </div>
+        </div>
+        <input type="text" ngControl="TWKEY" [(ngModel)]="twitterID">
+    </div>
+    <button class="btn btn-default" (click)="submitClick(userID,twitterID)">Submit</button>
 </form>
 
 
 <div>{{ f.value | json }} </div>
 
+<form #g="ngForm">
+    <div ngControlGroup="get">
+        <div *ngIf="af.auth | async">
+            <div> Your UID: {{ (af.auth | async)?.uid }} </div>
+        </div>
+    </div>
+    <button class="btn btn-info" (click)="getClick(userID)">Get TWKEY</button>
+        <div>
+        <ul>
+            <li *ngFor="let key of pushTweets |  async">
+                  <div>twKey: {{key.twKey}}</div> 
+                <div> $key: {{key.$key}}</div>
+            </li>
+        </ul>
+    </div>
+</form>
 

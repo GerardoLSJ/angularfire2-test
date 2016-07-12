@@ -17,7 +17,7 @@ export class FirebaseService {
 
         this.users = af.database.list('/tweets', {
             query: {
-                orderByChild: 'content',
+                orderByChild: 'user-key',
                 equalTo: "contenterasdasdasdasdds gfjfkjfkda "
             }
         });

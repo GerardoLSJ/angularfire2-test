@@ -1,9 +1,8 @@
 <h1>{{title}}</h1>
 <h2>{{subtitle}}</h2>
 
-<form-firebase></form-firebase>
-
 <login-section></login-section>
+
 <div *ngIf="af.auth | async"> 
 <ul>
 
@@ -22,8 +21,7 @@
 
 </ul>
 
-
-
+  <form-firebase></form-firebase>
   <tweets-section  ></tweets-section>
 </div>
 
