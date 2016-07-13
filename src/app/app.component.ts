@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FireComponent } from './fire.component';
+import { TweetComponent } from './tweets.component';
 import { LoginComponent } from './login.component';
 import { FormFirebaseComponent } from './form.component';
 
@@ -12,7 +12,7 @@ import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
   selector: 'app',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.css'],
-  directives:[FireComponent,LoginComponent, FormFirebaseComponent]
+  directives:[TweetComponent,LoginComponent, FormFirebaseComponent]
 })
 export class AppComponent {
   title = 'app works!';

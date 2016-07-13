@@ -11,11 +11,11 @@ import { AuthProviders, AuthMethods } from 'angularfire2';
 @Component({
     moduleId: module.id,
     selector: 'tweets-section',
-    templateUrl: 'fire.component.html',
+    templateUrl: 'tweets.component.html',
     styleUrls: ['app.component.css'],
     providers: [FirebaseService]
 })
-export class FireComponent  {
+export class TweetComponent  {
 
     constructor(
         private firebaseService: FirebaseService,
