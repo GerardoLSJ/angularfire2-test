@@ -13,7 +13,8 @@ import { FirebaseService } from './firebase.service';
   </div>
   <div *ngIf="!(af.auth | async)">
      <button class="btn btn-default" (click)="loginGoogle()">Login With google</button>
-     <button class="btn btn-default" (click)="emailLogin2(email, password)">Login Email</button>
+     <button class="btn btn-default" (click)="emailLogin3(email, password)">Login Email</button>
+     <button class="btn btn-default" (click)="emailLogin2(email, password)">Login Email OLD</button>
   </div>
   `,
 })
@@ -43,13 +44,21 @@ export class LoginComponent {
   emailLogin2() {
     this.af.auth.login(
       {
-        email: 'gerricio@gmail.com',
-        password: 'password'
+        email: 'juan@gmail.com',
+        password: 'qwerty'
       },
       {
         provider: AuthProviders.Password,
         method: AuthMethods.Password,
       })
+  }
+
+    emailLogin3(email: string, password: string): Promise<any> {
+    var creds: any = {email: email, password: password};
+     return this.af.auth.login(creds, {
+          method: AuthMethods.Password,
+          provider: AuthProviders.Password
+        });
   }
 
   logOut(){
